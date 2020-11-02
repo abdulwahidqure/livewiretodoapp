@@ -1,0 +1,165 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://unpkg.com/tailwindcss/dist/base.css
+ */
+@tailwind base;
+
+/**
+ * Remove the default box-shadow for invalid elements to prevent
+ * inputs in Livewire components showing with a
+ * red border by default in Firefox.
+ *
+ * See: https://github.com/laravel-frontend-presets/tall/issues/7
+ */
+ input:invalid, textarea:invalid, select:invalid {
+    box-shadow: none;
+}
+
+/**
+ * This injects any component classes registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ */
+
+[x-cloak] {
+    display: none;
+}
+
+@layer components {
+    .tw-btn-sm{
+      @apply py-1 px-2 rounded;
+    }
+    .tw-btn-md{
+        @apply py-2 px-4 rounded;
+    }
+    
+    .tw-btn-main {
+      background-color: theme('colors.btn-default');
+      color: theme('colors.btn-text');
+      @apply font-bold;
+    }
+    .tw-btn-main:focus{
+      @apply outline-blue;
+    }
+    .tw-btn-main:hover {
+      @apply bg-blue-700;
+    }
+    .tw-form-input{
+      @apply bg-gray-200 appearance-none border-2;
+      @apply text-gray-600 leading-tight;
+      @apply transition duration-500 ease-in-out;
+    }
+    .tw-form-input-md{
+      @apply rounded py-2 px-4;
+    }
+    .tw-form-input-sm{
+      @apply rounded py-1 px-2;
+    }
+    .tw-form-input:focus{
+      @apply outline-none bg-white border-blue-500;
+    }
+    .tw-form-input-error{
+      @apply border-red-500 text-red-900;
+    }
+
+    .animated {
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+
+		.animated.fast {
+			-webkit-animation-duration: 500ms;
+			animation-duration: 500ms;
+    }
+
+    .animated.faster {
+			-webkit-animation-duration: 200ms;
+			animation-duration: 200ms;
+    }
+    
+    .animated.slow {
+			-webkit-animation-duration: 1500ms;
+			animation-duration: 1500ms;
+    }
+    
+    .animated.veryslow {
+			-webkit-animation-duration: 2000ms;
+			animation-duration: 2000ms;
+		}
+
+		.fadeIn {
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+
+		.fadeOut {
+			-webkit-animation-name: fadeOut;
+			animation-name: fadeOut;
+    }
+    
+    .slideDown{
+      -webkit-animation-name: slideDown;
+			animation-name: slideDown;
+    }
+
+		@keyframes fadeIn {
+			from {
+        opacity: 0;
+        transform: scale(1.3)
+			}
+
+			to {
+        opacity: 1;
+        transform: scale(1.0)
+			}
+		}
+
+		@keyframes fadeOut {
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0;
+			}
+    }
+    
+    @keyframes slideDown {
+			from {
+				transform: translateY(-100%);
+			}
+		}
+    
+
+}

@@ -66,6 +66,8 @@
       background-color: theme('colors.btn-default');
       color: theme('colors.btn-text');
       @apply font-bold;
+      @apply w-full;
+      
     }
     .tw-btn-main:focus{
       @apply outline-blue;
@@ -77,6 +79,7 @@
       @apply bg-gray-200 appearance-none border-2;
       @apply text-gray-600 leading-tight;
       @apply transition duration-500 ease-in-out;
+      @apply w-full;
     }
     .tw-form-input-md{
       @apply rounded py-2 px-4;
@@ -90,6 +93,63 @@
     .tw-form-input-error{
       @apply border-red-500 text-red-900;
     }
+
+    // nav bar css
+    a.tab{
+      --text-opacity: 1;
+      color: #4a5568;
+      color: rgba(74,85,104,var(--text-opacity));
+      text-decoration: none;
+      border-bottom-width: 4px;
+      border-color: transparent;
+      display: inline-block;
+      padding: .75rem 1rem;
+      font-weight: 600;
+      margin-bottom: -1px;
+    }
+
+    a.active-tab, a.tab:hover {
+      --text-opacity: 1;
+      color: #50688f;
+      color: rgba(80,104,143,var(--text-opacity));
+      text-decoration: none;
+      border-bottom-width: 4px;
+      --border-opacity: 1;
+      border-color: #50688f;
+      border-color: rgba(80,104,143,var(--border-opacity));
+  }
+
+  a.active-tab:hover {
+    border-bottom-width: 4px;
+    --border-opacity: 1;
+    border-color: #4a5568;
+    border-color: rgba(74,85,104,var(--border-opacity));
+  }
+
+  a.active-tab:hover, button.tab {
+    --text-opacity: 1;
+    color: #4a5568;
+    color: rgba(74,85,104,var(--text-opacity));
+    text-decoration: none;
+  }
+
+  a.active-tab {
+    display: inline-block;
+    padding: .75rem 1rem;
+    font-weight: 600;
+    margin-bottom: -1px;
+  }
+
+  a.active-tab, a.tab:hover {
+    --text-opacity: 1;
+    color: #50688f;
+    color: rgba(80,104,143,var(--text-opacity));
+    text-decoration: none;
+    border-bottom-width: 4px;
+    --border-opacity: 1;
+    border-color: #50688f;
+    border-color: rgba(80,104,143,var(--border-opacity));
+  }
 
     .animated {
 			-webkit-animation-duration: 1s;
@@ -133,6 +193,11 @@
 			animation-name: slideDown;
     }
 
+    .bounceInRight {
+      -webkit-animation-name: bounceInRight;
+      animation-name: bounceInRight;
+    }
+
 		@keyframes fadeIn {
 			from {
         opacity: 0;
@@ -159,7 +224,36 @@
 			from {
 				transform: translateY(-100%);
 			}
-		}
+    }
+    
+    @keyframes bounceInRight{
+      0%{transform:translateX(600px);
+        -webkit-animation-timing-function:ease-in;
+        animation-timing-function:ease-in;
+        opacity:0}
+        38%{transform:translateX(0);
+        -webkit-animation-timing-function:ease-out;
+        animation-timing-function:ease-out;
+        opacity:1}
+        55%{transform:translateX(68px);
+        -webkit-animation-timing-function:ease-in;
+        animation-timing-function:ease-in}
+        72%{transform:translateX(0);
+        -webkit-animation-timing-function:ease-out;
+        animation-timing-function:ease-out}
+        81%{transform:translateX(32px);
+        -webkit-animation-timing-function:ease-in;
+        animation-timing-function:ease-in}
+        90%{transform:translateX(0);
+        -webkit-animation-timing-function:ease-out;
+        animation-timing-function:ease-out}
+        95%{transform:translateX(8px);
+        -webkit-animation-timing-function:ease-in;
+        animation-timing-function:ease-in}
+        to{transform:translateX(0);
+        -webkit-animation-timing-function:ease-out;
+        animation-timing-function:ease-out}
+      }
     
 
 }

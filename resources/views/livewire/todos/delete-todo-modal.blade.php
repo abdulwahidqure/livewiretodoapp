@@ -1,10 +1,10 @@
 {{-- todo add modal --}}
 <div>
 @if($show)
-<div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-25 shadow-lg animated fadeIn faster
+<div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-25 shadow-lg animated fadeIn faster px-3
 ">
 <!-- modal -->
-<div class="bg-white rounded-b-xl shadow-lg w-1/2">
+<div class="bg-white shadow-lg md:w-1/2 w-full">
 <!-- modal header -->
 <div class="flex justify-between items-center bg-red-500 text-white shadow-lg">
 <div></div>

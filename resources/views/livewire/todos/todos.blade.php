@@ -1,37 +1,36 @@
 
-<div class="font-sans bg-grey-lighter flex flex-col min-h-screen w-full">
-    <div class="flex-grow container mx-auto sm:px-4 pt-6 pb-8">
+
+    <div class="flex-grow container mx-auto px-4 pt-6 pb-8">
         <div class="flex-col">
             {{-- search and filters area --}}
-            <div class="flex flex-row-reverse flex-wrap mb-5 space-y-reverse space-y-3">
-                
-                {{-- row item --}}
-                <div class="flex-initial">
-                    <input wire:model='search' type="text" id="search" name="search" class="tw-form-input tw-form-input-sm" placeholder="Seach..."/>
-                    <button class="tw-btn-sm tw-btn-main">Go!</button>
-                </div>
-                {{-- row item --}}
-                
-                {{-- row item --}}
-                <div class="flex-initial mr-5">
-                    <button wire:click.prefetch="showAddTodoModal" class="tw-btn-sm tw-btn-main">Add New</button>
-                </div>
-                {{-- row item --}}
-
-                
-                
+            <div class="flex-col flex space-y-3 md:space-y-0 md:flex-row md:flex-no-wrap items-stretch w-full md:justify-end md:space-x-1">
+              
+              {{-- row item --}}
+              <div class="">
+                  <input wire:model='search' type="text" id="search" name="search" class="tw-form-input tw-form-input-sm" placeholder="Seach..."/>
+              </div>
+              {{-- row item --}}
+              {{-- row item --}}
+              <div class="flew-row flex space-x-1">
+                <button wire:click.prefetch="showAddTodoModal" class="tw-btn-sm tw-btn-main">Add New</button>
+                <button wire:click.prefetch="showAddTodoModal" class="tw-btn-sm tw-btn-main">Add New</button>
+              </div>
+              {{-- row item --}}
+              
 
             </div>
             {{-- search and filters area --}}
             
             {{-- table or form area --}}
+            
             {{-- pagination links --}}
             <div class="mt-3 mb-3">
                   {{$todos->links()}}
             </div>
             {{-- pagination links --}}
-            <div  class="overflow-auto sm:overflow-visible">
-                <table class="table-auto sm:w-full">
+
+            <div  class="overflow-x-auto whitespace-no-wrap scrolling-touch">
+                <table class="table-auto w-full cursor-pointer">
                     <thead>
                     <tr>
                         <th class="px-4 py-2 border">Sr#</th>
@@ -51,12 +50,8 @@
                             <td class="border px-4 py-2 hover:bg-gray-300 hover:shadow-lg transition duration-500 ease-in-out"> {{$todo->task}} </td>
                             <td class="border px-4 py-2 hover:bg-gray-300 hover:shadow-lg transition duration-500 ease-in-out">
                                 <div class="sm:flex sm:flex-row sm:space-y-0 space-x-1 space-y-2">
-                                    <div class="">
-                                        <button wire:click='showDeleteTodoModal({{$todo->id}})' class="bg-red-500 border px-2 py-1 rounded hover:bg-red-700 hover:shadow-lg focus:bg-red-400 text-white">Delete</button>
-                                    </div>
-                                    <div class="">
-                                        <button wire:click="showEditTodoModal({{$todo->id}})" class="tw-btn-sm tw-btn-main">Edit</button>
-                                    </div>
+                                    <button wire:click='showDeleteTodoModal({{$todo->id}})' class="bg-red-500 border px-2 py-1 rounded hover:bg-red-700 hover:shadow-lg focus:bg-red-400 text-white">Delete</button>
+                                    <button wire:click="showEditTodoModal({{$todo->id}})" class="tw-btn-sm tw-btn-main">Edit</button>
                                 </div>
                             </td>
                         </tr>
@@ -123,4 +118,3 @@
   </script>
     </div>
     {{-- @livewire('todos.add-todo-modal', ['show' => $showModal]) --}}
-  </div>

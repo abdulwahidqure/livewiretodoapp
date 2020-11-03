@@ -1,5 +1,5 @@
 <div>
-    <button wire:loading.class="cursor-not-allowed opacity-50" wire:loading.attr="disabled" wire:target='addTodo' type="submit" {{ ($submitButton)?'':'disabled' }} class="tw-btn-md tw-btn-main inline-flex items-center {{ ($submitButton)?'':'opacity-50 cursor-not-allowed' }}">
+    <button wire:loading.class="cursor-not-allowed opacity-50" wire:loading.attr="disabled" wire:target='addTodo' type="submit" {{ ($submitButton)?'':'disabled' }} class="tw-btn-md tw-btn-main {{ ($submitButton)?'':'opacity-50 cursor-not-allowed' }}">
         <div wire:loading.remove wire:target='{{$wireTarget}}'>
             SUBMIT
         </div>
